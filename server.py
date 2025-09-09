@@ -9,7 +9,7 @@ def mcp_handler():
     return str(random.randint(0, 100))
 
 
-app.add_url_rule('/mcp', view_func=mcp_handler)
+app.add_url_rule('/mcp', view_func=mcp_handler, methods=["POST", "GET"])
 
 if __name__ == "__main__":
     app.run()
