@@ -1,10 +1,11 @@
-from flask import Flask
+from flask import Flask, request
 import random
 
 app = Flask(__name__)
 
 
 def mcp_handler():
+    print(request.data)
     return str(random.randint(0, 100))
 
 
