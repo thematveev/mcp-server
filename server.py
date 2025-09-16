@@ -27,6 +27,27 @@ def mcp_handler():
         })
     elif data['method'] == "notifications/initialized":
         return "ok"
+    elif data['method'] == "tools/list":
+        return jsonify(
+            {
+                "jsonrpc": "2.0",
+                "id": data["id"],
+                "result": {
+                    "tools": [
+                        {
+                            "name": "radom_generator",
+                            "title": "Randomizer",
+                            "description": "Creates real random numbers from 1 to 100",
+                            "inputSchema": {
+                                "type": "object",
+                                "properties": {},
+                                "required": []
+                            }
+                        }
+                    ]
+                }
+            }
+        )
 
 
 app.add_url_rule('/mcp', view_func=mcp_handler, methods=["POST"])
