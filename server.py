@@ -48,6 +48,21 @@ def mcp_handler():
                 }
             }
         )
+    elif data["method"] == "tools/call":
+        return jsonify(
+            {
+                "jsonrpc": "2.0",
+                "id": data["id"],
+                "result": {
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": f"REAL RANDOM VALUE IS -> {random.randint(1, 100)}"
+                        }
+                    ]
+                }
+            }
+        )
 
 
 app.add_url_rule('/mcp', view_func=mcp_handler, methods=["POST"])
