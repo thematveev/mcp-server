@@ -25,6 +25,8 @@ def mcp_handler():
             }
           }
         })
+    elif data['method'] == "notifications/initialized":
+        return "ok"
 
 
 app.add_url_rule('/mcp', view_func=mcp_handler, methods=["POST"])
