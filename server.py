@@ -49,6 +49,8 @@ def mcp_handler():
             }
         )
     elif data["method"] == "tools/call":
+        s = f"REAL RANDOM VALUE IS -> {random.randint(1, 100)}"
+        print(s)
         return jsonify(
             {
                 "jsonrpc": "2.0",
@@ -57,7 +59,7 @@ def mcp_handler():
                     "content": [
                         {
                             "type": "text",
-                            "text": f"REAL RANDOM VALUE IS -> {random.randint(1, 100)}"
+                            "text": s
                         }
                     ]
                 }
