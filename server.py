@@ -6,6 +6,7 @@ app = Flask(__name__)
 
 def mcp_handler():
     data = request.json
+    print(data)
     if data['method'] == "initialize":
         return jsonify({
           "jsonrpc": "2.0",
